@@ -27,12 +27,22 @@ public class Blogg {
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
+		
+		for(int i = 0; i < innleggTabell.length; i++){
+			if (innleggTabell[i] != null && innleggTabell[i].erLik(innlegg)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+		for(Innlegg a : innleggTabell){
+			if (a != null && a.erLik(innlegg)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean ledigPlass() {
