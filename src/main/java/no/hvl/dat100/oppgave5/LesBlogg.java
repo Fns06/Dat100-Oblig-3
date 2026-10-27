@@ -22,7 +22,55 @@ public class LesBlogg {
 
 	public static Blogg les(String mappe, String filnavn) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		try {
+
+			File fil = new File(mappe, filnavn);
+			Scanner scanner = new Scanner(fil);
+
+			int antallInnlegg;
+
+			String forsteOrd = scanner.nextLine();
+			antallInnlegg = Integer.parseInt(forsteOrd);
+
+			Blogg samling = new Blogg(antallInnlegg);
+
+			String typeInnlegg;
+			int ID;
+			String brukernavn;
+			String dato;
+			int likes;
+			String tekst;
+
+			for (int i = 0; i < antallInnlegg; i++) {
+				typeInnlegg = scanner.nextLine();
+
+				if (typeInnlegg.equals(TEKST)) {
+
+					ID = Integer.parseInt(scanner.nextLine());
+					brukernavn = scanner.nextLine();
+					dato = scanner.nextLine();
+					likes = Integer.parseInt(scanner.nextLine());
+					tekst = scanner.nextLine();
+
+					Tekst tekst1 = new Tekst(ID, brukernavn, dato, likes, tekst);
+
+					samling.leggTil(tekst1);
+				}
+
+				else if (typeInnlegg.equals(BILDE)) {
+
+					ID = Integer.parseInt(scanner.nextLine());
+
+
+				}
+			}
+
+		}
+
+		catch (FileNotFoundException e) {
+
+			return null;
+		}
 
 	}
 }
