@@ -43,6 +43,8 @@ public class Blogg {
 			}
 		}
 		return false;
+
+		
 	}
 
 	public boolean ledigPlass() {
