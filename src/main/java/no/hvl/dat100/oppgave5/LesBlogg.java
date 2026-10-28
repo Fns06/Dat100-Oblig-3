@@ -40,6 +40,7 @@ public class LesBlogg {
 			String dato;
 			int likes;
 			String tekst;
+			String url;
 
 			for (int i = 0; i < antallInnlegg; i++) {
 				typeInnlegg = scanner.nextLine();
@@ -60,10 +61,21 @@ public class LesBlogg {
 				else if (typeInnlegg.equals(BILDE)) {
 
 					ID = Integer.parseInt(scanner.nextLine());
+					brukernavn = scanner.nextLine();
+					dato = scanner.nextLine();
+					likes = Integer.parseInt(scanner.nextLine());
+					tekst = scanner.nextLine();
+					url = scanner.nextLine();
 
+					Bilde bilde1 = new Bilde(ID, brukernavn, dato, likes, tekst, url);
 
+					samling.leggTil(bilde1);
 				}
 			}
+
+			scanner.close();
+			
+			return samling;
 
 		}
 
